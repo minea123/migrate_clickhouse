@@ -1,0 +1,13 @@
+certifi==2025.1.31
+clickhouse-connect==0.8.16
+lz4==4.4.4
+numpy==2.2.4
+pandas==2.2.3
+psycopg==3.2.6
+python-dateutil==2.9.0.post0
+python-dotenv==1.1.0
+pytz==2025.2
+six==1.17.0
+tzdata==2025.2
+urllib3==2.3.0
+zstandard==0.23.0
