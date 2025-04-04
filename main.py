@@ -34,7 +34,7 @@ con = get_connection(postgres_db)
 cursor = con.cursor(name=f'migrate_{postgres_db}/{postgres_table}')
 cursor.itersize = batch_size
 
-cursor.execute(f'SELECT * FROM {postgres_table}')
+cursor.execute(f'SELECT * FROM {postgres_table} WHERE DATE(request_date) >= \'2025-03-15\' ORDER BY request_date DESC')
 
 migrated_rows = 0
 columns = None
@@ -72,7 +72,7 @@ while True:
     df['client_ip'] = df['client_ip'].astype(str)
     
     normalized_list = df.to_numpy().tolist()
-    migrate(client, clickhouse_table, batch_rows=normalized_list, column_names=columns)
+    #migrate(client, clickhouse_table, batch_rows=normalized_list, column_names=columns)
         
     migrated_rows += len(rows)
     print(f'Migrated {migrated_rows} records')

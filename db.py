@@ -1,5 +1,8 @@
 import os
 from psycopg import connect
+from dotenv import load_dotenv
+
+load_dotenv('.env', override=True)
 
 SOURCE_DB_NAME=os.getenv('SOURCE_DB_NAME')
 SOURCE_DB_USER=os.getenv('SOURCE_DB_USER')
